@@ -1,0 +1,57 @@
+.publicidad-noticias {
+    position: relative;
+}
+
+.descuento-publicidad {
+    background-color: #c97538;
+    box-shadow: 10px 10px 10px #caad96;
+    outline: 10px solid #e1aa7f;
+    color: white;
+    font-size: 2.7rem;
+    text-align: center;
+    font-weight: bold;
+    position: absolute;
+    top: 63%;
+    right: 8%;
+}
+
+@media (max-width: 575px) {
+    .imagen-encabezado {
+        width: 25%;
+        height: 10%;
+    }
+}
+
+@media (min-width: 576px) and (max-width: 767px) {
+    .descuento-publicidad {
+        font-size: 0.75rem;
+        top: 70%;
+        width: 58%;
+        right: 0%;
+        left: 20%;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+    .descuento-publicidad {
+        font-size: 1.2rem;
+        width: 70%;
+        right: 0%;
+        left: 15%;
+    }
+}
+
+@media (min-width: 992px) and (max-width: 1199px) {
+    .descuento-publicidad {
+        font-size: 2.0rem;
+        width: 76%;
+        right: 0%;
+        left: 12%;
+    }
+}
+
+@media (min-width: 1200px) {
+    .descuento-publicidad {
+        font-size: 3rem;
+    }
+}

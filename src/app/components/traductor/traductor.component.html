@@ -1,0 +1,38 @@
+<section class="row justify-content-center mt-2">
+
+    <div class="col-12 col-sm-8">
+        <p class="col text-center mt-3 h3 text-dark"><strong>Traductor</strong></p>
+        <p class="col text-center mt-3 h5 text-dark"><strong>Traduc&iacute; en 4 idiomas GRATIS!</strong></p>
+        <div class="fondo-traductor p-3 mt-2 rounded-lg">
+            <div class="row justify-content-center">
+                <div class="col-4 col-md-5">
+                    <select [(ngModel)]="texto.source" class="btn p-2 boton mb-2">
+                      <option  *ngFor="let idioma of idiomas" [ngValue]="idioma.codigo">{{ idioma.idioma }}</option>
+                   </select>
+                </div>
+                <div class="col-2 col-sm-auto">
+                    <button class=" btn boton" (click)="invertirIdiomas()"><i class="fas fa-arrows-alt-h"></i></button>
+                </div>
+                <div class="col-4 col-md-5 text-right">
+                    <select [(ngModel)]="texto.target" class="btn p-2 boton mb-2">
+                  <option  *ngFor="let idioma of idiomas" [ngValue]="idioma.codigo">{{ idioma.idioma }}</option>
+                </select>
+                </div>
+                <div class="col-11 col-sm-6">
+                    <textarea class="col-12 rounded-lg" rows="5" placeholder="Ingresá tu texto aquí" name="txtInput" [(ngModel)]="texto.input"> </textarea>
+                </div>
+                <div class="col-11 col-sm-6">
+                    <textarea readonly class="col-12 rounded-lg" rows="5" name="txtOutput"> {{ texto.output }} </textarea>
+                </div>
+            </div>
+            <div class="row justify-content-end">
+                <div class="col-auto mt-1 mb-3">
+                    <button class="btn mr-1 rounded boton" (click)="limpiarCampos()">Limpiar</button>
+                    <button class="btn rounded boton" (click)="traducir()">Traducir</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <app-publicidad class="col-3 mt-5 pt-5 d-none d-sm-block"></app-publicidad>
+
+</section>

@@ -1,0 +1,38 @@
+.fondo-encabezado {
+    background-color: rgb(255, 209, 90);
+}
+
+.navegador {
+    background-color: rgb(42, 43, 45);
+}
+
+.navegador li a {
+    text-decoration: none;
+    font-size: 1.2rem;
+    color: white;
+    margin-right: 3px;
+}
+
+.navegador li :hover {
+    background-color: rgb(255, 209, 90);
+    color: black;
+    padding: 5px;
+    font-weight: bold;
+    -moz-border-radius: 0px 5px 5px 5px;
+    -webkit-border-radius: 0px 5px 5px 5px;
+    border-radius: 0px 5px 5px 5px;
+}
+
+.ruta-activa {
+    background-color: rgb(255, 209, 90);
+    color: black !important;
+    padding: 5px;
+    font-weight: bold;
+    -moz-border-radius: 0px 5px 5px 5px;
+    -webkit-border-radius: 0px 5px 5px 5px;
+    border-radius: 0px 5px 5px 5px;
+}
+
+.desplegable {
+    background-color: rgb(42, 43, 45);
+}

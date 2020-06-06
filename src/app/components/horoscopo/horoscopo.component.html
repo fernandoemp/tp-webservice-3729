@@ -1,0 +1,48 @@
+<section class="row">
+    <h1 class="col-12 text-center text-dark">Horoscope</h1>
+    <h3 class="col-12 text-center text-muted">
+        <small>Know what luck holds for you today!</small>
+    </h3>
+    <div class="col-6 col-md-4 float-left" *ngFor="let signo of signos">
+        <a href="#ancla1" class="stretched-link"></a>
+        <article class="card mb-3 border-0">
+            <div class="row no-gutters">
+                <div class="col-md-4">
+                    <img src="{{ signo.image}}" class="img-fluid" alt="img_acuario">
+                </div>
+                <div class="col-md-8">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ signo.nameSigno | uppercase }}</h5>
+                        <p class="card-text"><small class="text-muted">{{ signo.date_range }}</small></p>
+                    </div>
+                </div>
+            </div>
+        </article>
+    </div>
+</section>
+
+<section class="row" *ngFor="let signo of signos">
+    <article class="card border-0 mb-0 pb-0 pt-0 mt-0">
+        <a name="ancla1"></a>
+        <div class="card-header fondo-titulo text-light vertical-align-center pb-0 pl-4">
+            <h3 class="mb-0 texto">{{ signo.nameSigno | titlecase }}</h3>
+            <p class="texto">{{ signo.date_range }}</p>
+        </div>
+        <div class="card-body">
+            <div class="row">
+                <div class="col-11 col-sm-7 col-md-10 text-left pl-4">
+                    <p class="card-text h5"> {{ signo.description }} </p>
+                    <p class="card-text"> Compatibility: {{ signo.compatibility }} </p>
+                    <p class="card-text"> Lucky Color: {{ signo.color }} </p>
+                    <p class="card-text"> Lucky Number: {{ signo.lucky_number }} </p>
+                </div>
+                <div class="d-none d-sm-block col-sm-5 col-md-2 my-auto">
+                    <img class="card-img-right img-fluid rounded-circle h-75" class="img-fluid" src="{{ signo.image }}" alt="acuario">
+                </div>
+                <div class="col">
+                </div>
+            </div>
+        </div>
+    </article>
+
+</section>

@@ -1,0 +1,37 @@
+<div class="row pl-1 pr-1">
+
+    <div class="col-12 col-sm-9 text-center my-2">
+        <p class="col text-center mt-2 font-weight-bold" name="tipo" class="tipo h3"><strong> Sport News Soccer </strong></p>
+    </div>
+    <!--
+    <form class="col-12" action="">
+        <div class="form-group row">
+            <label for="categoria" class="col-2">Seleccione Categor&iacute;a</label>
+            <select id="categoria" name="categoria" class="col-10 form-control" [(ngModel)]="categoria">
+            <option value="soccer">Futbol</option>
+            <option value="cricket">Cricket</option>
+            <option value="basketball">Basquet</option>
+           </select>
+            <div>
+                <button class="btn btn-dark" (click)="getNoticias()">Buscar</button>
+            </div>
+        </div>
+    </form>-->
+
+    <main class="col-sm-9">
+        <div class="row mb-2">
+            <article class="col-sm-6 card border-0" *ngFor="let noticia of noticias">
+                <img class="card-img-top" src="{{ noticia.img }}" class="img-fluid mb-2" alt="">
+                <div class="card-block">
+                    <h4 class="card-title">
+                        <p class="descripcion text-light pl-1 pr-1"> {{ noticia.cap }} </p>
+                        <a class="" href="#" class="stretched-link">
+                            <h6 class="text-dark">{{ noticia.tit }}</h6>
+                        </a>
+                    </h4>
+                </div>
+            </article>
+        </div>
+    </main>
+    <app-publicidad class="col-12 col-sm-3"></app-publicidad>
+</div>

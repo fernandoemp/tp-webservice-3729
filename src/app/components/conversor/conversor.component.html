@@ -1,0 +1,107 @@
+<div class="row justify-content-center pt-1">
+    <section class="col-md-8 d-none d-md-block pt-1 borde-convertidor-pers1 pr-1 pl-4">
+        <h5 class="text-center pb-2 pt-2 align-middle titulo-conversor-pers text-light">Conversor de Divisas</h5>
+        <table class="table table-responsive text-center">
+            <thead>
+                <td>
+
+                </td>
+                <td *ngFor="let moneda of monedas">
+                    <div class="row">
+                        <div class="col"><img src="{{ moneda.imagen }}" class="img-fluid" alt=""></div>
+                    </div>
+                    <div class="row">
+                        <div class="col">{{ moneda.codigoMoneda }}</div>
+                    </div>
+                </td>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>
+                        <select id="conversion1" type="text" class="bg-dark text-light" [(ngModel)]="conversion1" name="conversion1" (ngModelChange)="obtenerConversiones1()">
+                          <option *ngFor="let moneda of monedas; index as i" [ngValue]="moneda.codigoMoneda">1 {{moneda.codigoMoneda}}</option>
+                        </select>
+                    </td>
+                    <td *ngFor="let conv of conversiones1">
+                        <label class=""> {{ conv | number: '1.6-6' }} </label>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <select id="conversion2" type="text" class="bg-dark text-light" [(ngModel)]="conversion2" name="conversion2" (ngModelChange)="obtenerConversiones2()">
+                       <option *ngFor="let moneda of monedas; index as i" [ngValue]="moneda.codigoMoneda">1 {{moneda.codigoMoneda}}</option>
+                  </select>
+                    </td>
+                    <td *ngFor="let conv of conversiones2">
+                        <label class=""> {{ conv | number: '1.6-6' }} </label>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <select id="conversion3" type="text" class="bg-dark text-light" [(ngModel)]="conversion3" name="conversion3" (ngModelChange)="obtenerConversiones3()">
+                     <option *ngFor="let moneda of monedas; index as i" [ngValue]="moneda.codigoMoneda">1 {{moneda.codigoMoneda}}</option>
+                   </select>
+                    </td>
+                    <td *ngFor="let conv of conversiones3">
+                        <label class=""> {{ conv | number: '1.6-6' }} </label>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <select id="conversion4" type="text" class="bg-dark text-light" [(ngModel)]="conversion4" name="conversion4" (ngModelChange)="obtenerConversiones4()">
+                   <option *ngFor="let moneda of monedas; index as i" [ngValue]="moneda.codigoMoneda">1 {{moneda.codigoMoneda}}</option>
+              </select>
+                    </td>
+                    <td *ngFor="let conv of conversiones4">
+                        <label class=""> {{ conv | number: '1.6-6' }} </label>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <select id="conversion5" type="text" class="bg-dark text-light" [(ngModel)]="conversion5" name="conversion5" (ngModelChange)="obtenerConversiones5()">
+                 <option *ngFor="let moneda of monedas; index as i" [ngValue]="moneda.codigoMoneda">1 {{moneda.codigoMoneda}}</option>
+              </select>
+                    </td>
+                    <td *ngFor="let conv of conversiones5">
+                        <label class=""> {{ conv | number: '1.6-6' }} </label>
+                    </td>
+                </tr>
+
+            </tbody>
+        </table>
+    </section>
+
+    <section class="col-12 col-md-4 px-0">
+        <label class="col h5 text-center border-bottom border-light mb-0 text-light pt-1 pb-2 titulo2-conversor-pers">Conversor de Divisas</label>
+        <form #formConversor="ngForm" class="col fondo1-pers pb-5">
+            <div class="form-group row mx-auto pl-sm-0 pl-3">
+                <label for="cantidad" class="text-light mt-2">Cantidad</label>
+                <input type="number" class="form-control form-control-md text-right" required id="cantidad" placeholder="Cantidad" name="cantidad" #cantidad="ngModel" [(ngModel)]="conversion.value">
+                <div *ngIf="cantidad.invalid && (cantidad.dirty || cantidad.touched)" class="alert alert-danger col-auto">
+                    <div *ngIf="cantidad.errors.required">
+                        Debe ingresar un valor numérico
+                    </div>
+                </div>
+            </div>
+            <div class="form-group row mx-auto  pl-sm-0 pl-3">
+                <label for="moneda1" class="text-light">De</label>
+                <select id="moneda1" name="de" type="text" class="form-control form-control-md text-right" id="de" #de="ngModel" [(ngModel)]="conversion.from">
+                    <option *ngFor="let moneda of monedas; index as i" [ngValue]="moneda.codigoMoneda">{{moneda.codigoMoneda}}</option>
+                </select>
+            </div>
+            <div class="form-group row mx-auto pl-sm-0 pl-3">
+                <label for="a" class="text-light">A</label>
+                <select id="a" name="a" class="form-control form-control-md text-right" id="a" #a="ngModel" [(ngModel)]="conversion.to">
+                    <option *ngFor="let moneda of monedas; index as i" [ngValue]="moneda.codigoMoneda">{{moneda.codigoMoneda}}</option>
+                </select>
+            </div>
+            <div class="form-group row mx-auto pl-sm-0 pl-3">
+                <label for="resultado" class="text-light">Resultado</label>
+                <output type="number" class="form-control form-control-md text-right" id="resultado">{{ conversion.result | currency }}</output>
+            </div>
+            <div class="form-group row mx-auto text-center pb-2 pl-sm-0 pl-3">
+                <button class="btn btn-success  btn-lg btn-block boton-convertidor-pers1 text-dark" [disabled]="!formConversor.valid" (click)="obtenerConversionFormulario()"><strong>Convertir</strong> &nbsp;<i class="fas fa-arrow-right"></i></button>
+            </div>
+        </form>
+    </section>
+</div>

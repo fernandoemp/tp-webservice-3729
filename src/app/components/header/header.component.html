@@ -1,0 +1,42 @@
+<div class="row fondo-encabezado align-items-end">
+    <img src="./../../../assets/logo_pagina.png" class="img-fluid pl-3 col-auto" alt="logo_pagina">
+    <div class="d-none d-sm-block col-10 align-items-end">
+        <div class="row justify-content-end pb-2">
+            <a href="#" class="redes"><img src="./../../../assets/facebook.png" class="img-fluid mr-1" alt="logo_facebook"></a>
+            <a href="#" class="redes"><img src="./../../../assets/twitter.png" class="img-fluid mr-1" alt="logo_twitter"></a>
+            <a href="#" class="redes"><img src="./../../../assets/instagram.png" class="img-fluid mr-1" alt="logo_instagram"></a>
+        </div>
+    </div>
+</div>
+<header class="row pl-2">
+    <nav class="navbar navbar-expand-lg navbar-dark navegador col-12">
+        <!-- <a class="nav-link dropdown-toggle" routerLinkActive="ruta-activa" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <strong>Sport News</strong></a>
+
+        <li class="navbar-brand dropdown ">
+            <a class="nav-link dropdown-toggle" routerLinkActive="ruta-activa" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <strong>Sport News</strong></a>
+           <div class="dropdown-menu desplegable" aria-labelledby="navbarDropdownMenuLink">
+                <a class="dropdown-item" (click)="obtenerNoticiaSegunCategoria('soccer')" routerLinkActive="ruta-activa">Soccer</a>
+                <a class="dropdown-item" (click)="obtenerNoticiaSegunCategoria('cricket')" routerLinkActive=" ruta-activa ">Cricket</a>
+                <a class="dropdown-item " (click)="obtenerNoticiaSegunCategoria('basketball')" routerLinkActive="ruta-activa">Basketball</a>
+            </div>
+        </li>-->
+
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
+            <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+                <li class="ml-2"><a [routerLink]="['home']" routerLinkActive="ruta-activa">Sport News</a></li>
+                <li class="ml-2"><a [routerLink]="['conversor']" routerLinkActive="ruta-activa">Conversor de Divisas</a></li>
+                <li class="ml-2"><a [routerLink]="['horoscopo']" routerLinkActive="ruta-activa">Horoscopo</a></li>
+                <li class="ml-2"><a [routerLink]="['estadisticas-covid19']" routerLinkActive="ruta-activa">Estadisticas Covid-19</a></li>
+                <li class="ml-2"><a [routerLink]="['traductor']" routerLinkActive="ruta-activa">Traductor</a></li>
+                <!--<li class="mr-3"><a [routerLink]="['punto4']" routerLinkActive="ruta-activa">Crucigrama</a></li>
+          -->
+
+            </ul>
+        </div>
+    </nav>
+</header>

@@ -1,0 +1,107 @@
+<section class="row mt-2 mx-1 justify-content-center">
+    <div class="col-11 mt-3">
+        <h3>Estadisticas en tiempo real de la pandemia que esta azotando al mundo entero: <strong>Covid-19</strong>.</h3>
+        <p class="text-center">Seleccione su país para recibir la información seleccionada en su correo electronico.<strong>(IT WORKS)</strong></p>
+    </div>
+    <form #formEstadisticas="ngForm" class="col-11 col-md-8">
+        <div class="form-group row">
+            <label for="pais">Seleccione un pais:</label>
+            <select class="custom-select" id="pais" name="pais" [(ngModel)]="paisSeleccionado" required #pais="ngModel">
+               <option *ngFor="let pais of paises" [ngValue]="pais.country">{{ pais.country | titlecase }}</option>
+           </select>
+            <div *ngIf="pais.invalid" class="alert alert-danger col-auto">
+                <div *ngIf="pais.errors.required">
+                    Debe seleccionar un país
+                </div>
+
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" id="confirmados" name="confirmados" #confirmados="ngModel" [(ngModel)]="opcionCasosConfirmados">
+                <label class="form-check-label" for="gridCheck1">Casos Confirmados</label>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" id="curados" name="curados" #curados="ngModel" [(ngModel)]="opcionCurados">
+                <label class="form-check-label" for="gridCheck1">Curados</label>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" id="fallecidos" name="fallecidos" #fallecidos="ngModel" [(ngModel)]="opcionFallecidos">
+                <label class="form-check-label" for="gridCheck1">Fallecidos</label>
+            </div>
+            <div *ngIf="confirmados.untouched && curados.untouched && fallecidos.untouched " class="alert alert-danger col-auto">
+                Debe seleccionar un casillero como mínimo
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="correo">Ingrese su correo electronico:</label>
+            <input type="email" id="correo" name="correo" #correo="ngModel" class="form-control" required placeholder="tucorreo@gmail.com" pattern="[A-Za-z0-9._%+-]{3,}@[a-zA-Z]{3,}([.]{1}[a-zA-Z]{2,}|[.]{1}[a-zA-Z]{2,}[.]{1}[a-zA-Z]{2,})" [(ngModel)]="email.to">
+            <div *ngIf="correo.invalid && (correo.dirty || correo.touched)" class="alert alert-danger col-auto">
+                <div *ngIf="correo.errors.required">
+                    Debe ingresar su correo
+                </div>
+                <div *ngIf="correo.errors.pattern">
+                    Debe ingresar un correo electronico valido
+                </div>
+            </div>
+        </div>
+        <div class=" form-group">
+            <button type="submit" class="btn btn-dark" (click)="enviarCorreo()" [disabled]="!formEstadisticas.valid">Enviar</button>
+        </div>
+    </form>
+
+    <section class="col-11 col-md-8">
+        <h4>Estad&iacute;sticas</h4>
+        <table class="table table-responsive-xl text-right">
+            <thead>
+                <tr class="encabezado h4">
+                    <th class="small border-0 text-left">
+                        Ubicación
+                    </th>
+                    <th class="small border-0">
+                        Nuevos Casos
+                    </th>
+                    <th class="small border-0">
+                        Fallecidos Hoy
+                    </th>
+                    <th class="small border-0">
+                        Casos Confirmados
+                    </th>
+                    <th class="small border-0">
+                        Curados
+                    </th>
+                    <th class="small border-0">
+                        Fallecidos
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let pais of estadisticas">
+                    <td class="text-left">
+                        <img src="{{ pais.image }}" class="img-fluid" alt="imagen-pais"> {{ pais.country | titlecase }}
+                    </td>
+                    <td>
+                        {{ pais.newCases }}
+                    </td>
+                    <td>
+                        {{ pais.newDeaths }}
+                    </td>
+                    <td>
+                        {{ pais.totalCases }}
+                    </td>
+                    <td>
+                        {{ pais.totalRecovered }}
+                    </td>
+                    <td>
+                        {{ pais.totalDeaths }}
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+</section>
